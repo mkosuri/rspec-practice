@@ -6,13 +6,26 @@ class ProductsController < ApplicationController
 	end
 	  
   def create
+     #render :json => "sdfmdslkmflsdmf"
       @product = Product.new 
       @product.name = params[:name]
-      @product.sname = params[:sname]
+      @product.cost = params[:cost]
        if @product.save
-      	 render :json => "successfully saved"
+          flash[:notce] ="product successfully create"
+          redirect_to @product
        else
-          render :json => "not yet saved"
+          flash[:error] = "product not create"
+          render :action => 'new'
        end
   end
+ 
+  def show
+    @product = Product.find(params[:id])
+    # puts "/////////////////////////////////////////////////"
+    render :json => @product.inspect and return
+  end
+
+
+
+
 end
