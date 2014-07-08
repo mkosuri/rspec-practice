@@ -6,5 +6,6 @@ FactoryGirl.define do
 		f.available 2659
 		f.manufacture_date Date.today
 		f.expire_date  Date.today + 365
+		customer
 	end
 end
