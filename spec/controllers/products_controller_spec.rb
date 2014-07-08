@@ -48,7 +48,10 @@ end
       expect(response.status).to eq(200)
       @product.reload
       expect(@product.name).to eq('update product')
-      #response.should redirect_to(products_url)
+      #if @product.save
+       #response.should redirect_to(@product)
+      #end
+
      end
    end
  end
@@ -56,12 +59,12 @@ end
  describe "delete destroy " do
    describe "with valid params" do
      it "delele paticulat product" do
-      request.accept = "application/json"
-      @product = FactoryGirl.create(:product)
+       request.accept = "application/json"
+       @product = FactoryGirl.create(:product)
        @products = Product.count
        delete :destroy,:id => @product.id
-       expect(response.status).to eq(200) 
-       expect(@products-1).to eq(Product.count)   
+       expect(response.status).to eq(302) 
+       response.should redirect_to '/products'
      end
    end
  end

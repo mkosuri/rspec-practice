@@ -8,7 +8,3 @@ FactoryGirl.define do
     desg "MyString"
   end
 end
-# factory :product do
-#     name "Apple"
-#     customer
-#   end
