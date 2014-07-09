@@ -19,12 +19,19 @@ require 'factory_girl'
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
-  require 'rspec/autorun'
+  # deprication warning
+  #require 'rspec/autorun'
   require 'factory_girl_rails'
   require 'capybara/rspec'
 RSpec.configure do |config|
+
+  #the below one configaration for deprication warning
+  config.expect_with :rspec do |c|
+    c.syntax = [:should, :expect]
+  end
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
+# config.warnings = true
 =begin
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with

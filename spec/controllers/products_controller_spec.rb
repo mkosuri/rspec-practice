@@ -44,6 +44,7 @@ end
       @product = FactoryGirl.create(:product) 
       puts(@product.name)
       @product.name = 'update product'
+      @product.cost = 1234
       put :update,:id => @product.id, :product=>{:name=> @product.name, :cost=>@product.cost}
       expect(response.status).to eq(200)
       @product.reload
