@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    render :json => "dflkflsdf"
+    render :json => "this is index action"
   end
 
 end
